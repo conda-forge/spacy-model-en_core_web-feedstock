@@ -1,7 +1,3 @@
-<!--
-# -*- mode: jinja -*-
--->
-
 About spacy-model-en_core_web
 =============================
 
@@ -18,9 +14,14 @@ Summary: English multi-task CNN trained on OntoNotes, with GloVe vectors trained
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/spacy-model-en_core_web-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/spacy-model-en_core_web-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/spacy-model-en_core_web-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/spacy-model-en_core_web-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/spacy-model-en-core-web-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/spacy-model-en-core-web-feedstock/branch/master)
+
+<table><tr>
+    <td>All platforms:</td>
+    <td>
+      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
+    </td>
+  </tr>
+</table>
 
 Current release info
 ====================
@@ -116,5 +117,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@sodre](https://github.com/sodre/)
 
