@@ -1,6 +1,6 @@
 {% set prefix = "spacy-model-" %}
 {% set name = "en_core_web" %}
-{% set version = "2.1.0" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ prefix }}{{ name|lower }}
@@ -9,13 +9,13 @@ package:
 source:
   - folder: sm
     url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_sm-{{ version }}/{{ name }}_sm-{{ version }}.tar.gz
-    sha256: 4db16860a8cdef56d436038ace6abeb9181a5176bdc8c16c755a20dced51e5f1
+    sha256: 65cea113d7509d5ab515583bbcbc9a31b4157bebbb73133d4110d2945476eaa4
   - folder: md
     url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_md-{{ version }}/{{ name }}_md-{{ version }}.tar.gz
-    sha256: b84c7e5d57840d6ad9160cfb746ebffde0c5fd04ee69ddfaa1ed36d37ac06f83
+    sha256: a86cd3e03b8f41b0fcfb19b09ce911f25a2d9881aa945a13fb1e4a773ecadb8d
   - folder: lg
     url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_lg-{{ version }}/{{ name }}_lg-{{ version }}.tar.gz
-    sha256: a260a236354a4cac47ff1260c84ee4cb980249f947753bb9bbb56b9bda678c7b
+    sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7
   - url: https://creativecommons.org/licenses/by-sa/3.0/legalcode.txt
     sha256: 3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f
 
@@ -52,7 +52,7 @@ outputs:
       imports:
         - {{ name }}_{{ size }}
       requires:
-        - spacy {{ version.split('.')[0] }}.*
+        - spacy {{ version.split('.')[0] }}.{{ version.split('.')[1] }}.*
       commands:
         - python -c "__import__('{{ name }}_{{ size }}').load()"
         - python -c "__import__('spacy').load('{{ name }}_{{ size }}')"
@@ -70,3 +70,4 @@ extra:
   recipe-maintainers:
     - sodre
     - bollwyvl
+    - setu4993
