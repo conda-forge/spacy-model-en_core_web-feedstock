@@ -16,8 +16,8 @@ source:
   - folder: lg
     url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_lg-{{ version }}/{{ name }}_lg-{{ version }}.tar.gz
     sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7
-  - url: https://creativecommons.org/licenses/by-sa/3.0/legalcode.txt
-    sha256: 3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f
+  - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
+    sha256: 9f865832998d57f089bd411844b65dd3875c585ccd0eb84e385563840da98ec3
 
 build:
   noarch: python
@@ -59,9 +59,9 @@ outputs:
 
 about:
   home: https://spacy.io
-  license: CC BY-SA 3.0
+  license: MIT
   summary: 'English multi-task CNN trained on OntoNotes, with GloVe vectors trained on Common Crawl.'
-  license_file: legalcode.txt
+  license_file: LICENSE
 
   doc_url: https://spacy.io/models/en
   dev_url: https://github.com/explosion/spacy-models
