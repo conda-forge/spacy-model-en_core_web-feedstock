@@ -4,7 +4,7 @@
 {% set size = CONFIG[-2:] %}
 
 package:
-  name: {{ prefix|lower }}{{ name|lower }}{{ CONFIG[-2:]|lower }}
+  name: {{ prefix|lower }}{{ name|lower }}{{ size|lower }}
   version: {{ version }}
 
 source:
