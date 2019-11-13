@@ -8,12 +8,12 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size==sm]
-    sha256: 65cea113d7509d5ab515583bbcbc9a31b4157bebbb73133d4110d2945476eaa4  # [size==sm]
-  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size==md]
-    sha256: a86cd3e03b8f41b0fcfb19b09ce911f25a2d9881aa945a13fb1e4a773ecadb8d  # [size==md]
-  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size==lg]
-    sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7  # [size==lg]
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size=='sm']
+    sha256: 65cea113d7509d5ab515583bbcbc9a31b4157bebbb73133d4110d2945476eaa4  # [size=='sm']
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size=='md']
+    sha256: a86cd3e03b8f41b0fcfb19b09ce911f25a2d9881aa945a13fb1e4a773ecadb8d  # [size=='md']
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size=='lg']
+    sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7  # [size=='lg']
   - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
     sha256: 9f865832998d57f089bd411844b65dd3875c585ccd0eb84e385563840da98ec3
 
