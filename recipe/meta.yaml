@@ -1,21 +1,19 @@
 {% set prefix = "spacy-model-" %}
-{% set name = "en_core_web" %}
+{% set name = "en_core_web_" %}
 {% set version = "2.2.0" %}
+{% set size = CONFIG[-2:] %}
 
 package:
-  name: {{ prefix }}{{ name|lower }}
+  name: {{ prefix|lower }}{{ name|lower }}{{ CONFIG[-2:]|lower }}
   version: {{ version }}
 
 source:
-  - folder: sm
-    url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_sm-{{ version }}/{{ name }}_sm-{{ version }}.tar.gz
-    sha256: 65cea113d7509d5ab515583bbcbc9a31b4157bebbb73133d4110d2945476eaa4
-  - folder: md
-    url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_md-{{ version }}/{{ name }}_md-{{ version }}.tar.gz
-    sha256: a86cd3e03b8f41b0fcfb19b09ce911f25a2d9881aa945a13fb1e4a773ecadb8d
-  - folder: lg
-    url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_lg-{{ version }}/{{ name }}_lg-{{ version }}.tar.gz
-    sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size==sm]
+    sha256: 65cea113d7509d5ab515583bbcbc9a31b4157bebbb73133d4110d2945476eaa4  # [size==sm]
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size==md]
+    sha256: a86cd3e03b8f41b0fcfb19b09ce911f25a2d9881aa945a13fb1e4a773ecadb8d  # [size==md]
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ size }}-{{ version }}/{{ name }}{{ size }}-{{ version }}.tar.gz  # [size==lg]
+    sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7  # [size==lg]
   - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
     sha256: 9f865832998d57f089bd411844b65dd3875c585ccd0eb84e385563840da98ec3
 
@@ -36,11 +34,11 @@ test:
     - echo "make lint happy"
 
 outputs:
-  - name: {{ prefix }}{{ name }}_{{ size }}
+  - name: {{ prefix }}{{ name }}{{ size }}
     build:
       noarch: python
       number: 0
-      script: cd {{ size }} && {{ PYTHON }} -m pip install . --no-deps -vv
+      script: {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
         - python
@@ -50,19 +48,18 @@ outputs:
         - setuptools
     test:
       imports:
-        - {{ name }}_{{ size }}
+        - {{ name }}
       requires:
         - spacy {{ version.split('.')[0] }}.{{ version.split('.')[1] }}.*
       commands:
-        - python -c "__import__('{{ name }}_{{ size }}').load()"
-        - python -c "__import__('spacy').load('{{ name }}_{{ size }}')"
+        - python -c "__import__('{{ name }}{{ size }}').load()"
+        - python -c "__import__('spacy').load('{{ name }}{{ size }}')"
 
 about:
   home: https://spacy.io
   license: MIT
   summary: 'English multi-task CNN trained on OntoNotes, with GloVe vectors trained on Common Crawl.'
   license_file: LICENSE
-
   doc_url: https://spacy.io/models/en
   dev_url: https://github.com/explosion/spacy-models
 
