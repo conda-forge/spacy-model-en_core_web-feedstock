@@ -19,10 +19,10 @@ source:
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ lg }}-{{ version }}/{{ name }}{{ lg }}-{{ version }}.tar.gz
     sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7
     folder: {{ lg }}
-    # TODO ! Add license file.
 
 build:
   noarch: python
+  # TODO: Update build number.
   number: 0
 
 requirements:
@@ -108,6 +108,7 @@ outputs:
 about:
   home: https://spacy.io
   license: MIT
+  # TODO: Add license file.
   summary: 'English multi-task CNN trained on OntoNotes, with GloVe vectors trained on Common Crawl.'
   doc_url: https://spacy.io/models/en
   dev_url: https://github.com/explosion/spacy-models
