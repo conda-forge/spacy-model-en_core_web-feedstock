@@ -1,29 +1,27 @@
 {% set prefix = "spacy-model-" %}
 {% set name = "en_core_web_" %}
 {% set version = "2.2.0" %}
-{% set sm = "sm" %}
-{% set md = "md" %}
-{% set lg = "lg" %}
 
 package:
   name: {{ prefix|lower }}{{ name[:-1]|lower }}
   version: {{ version }}
 
 source:
-  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ sm }}-{{ version }}/{{ name }}{{ sm }}-{{ version }}.tar.gz
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}sm-{{ version }}/{{ name }}sm-{{ version }}.tar.gz
     sha256: 65cea113d7509d5ab515583bbcbc9a31b4157bebbb73133d4110d2945476eaa4
-    folder: {{ sm }}
-  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ md }}-{{ version }}/{{ name }}{{ md }}-{{ version }}.tar.gz
+    folder: sm
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}md-{{ version }}/{{ name }}md-{{ version }}.tar.gz
     sha256: a86cd3e03b8f41b0fcfb19b09ce911f25a2d9881aa945a13fb1e4a773ecadb8d
-    folder: {{ md }}
-  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}{{ lg }}-{{ version }}/{{ name }}{{ lg }}-{{ version }}.tar.gz
+    folder: md
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}lg-{{ version }}/{{ name }}lg-{{ version }}.tar.gz
     sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7
-    folder: {{ lg }}
+    folder: lg
+  - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
+    sha256: 9f865832998d57f089bd411844b65dd3875c585ccd0eb84e385563840da98ec3
 
 build:
   noarch: python
-  # TODO: Update build number.
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -38,13 +36,14 @@ test:
     - echo "make lint happy"
 
 outputs:
-  - name: {{ prefix }}{{ name }}{{ sm }}
+  - name: {{ prefix }}{{ name }}sm
     files:
-      - {{ sm }}
+      - sm
+      - LICENSE
     build:
       noarch: python
       number: 0
-      script: cd {{ sm }} && {{ PYTHON }} -m pip install . --no-deps -vv
+      script: cd sm && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
         - python
@@ -54,19 +53,20 @@ outputs:
         - setuptools
     test:
       imports:
-        - {{ name }}{{ sm }}
+        - {{ name }}sm
       requires:
         - spacy {{ version.split('.')[0] }}.{{ version.split('.')[1] }}.*
       commands:
-        - python -c "__import__('{{ name }}{{ sm }}').load()"
-        - python -c "__import__('spacy').load('{{ name }}{{ sm }}')"
-  - name: {{ prefix }}{{ name }}{{ md }}
+        - python -c "__import__('{{ name }}sm').load()"
+        - python -c "__import__('spacy').load('{{ name }}sm')"
+  - name: {{ prefix }}{{ name }}md
     files:
-      - {{ md }}
+      - md
+      - LICENSE
     build:
       noarch: python
       number: 0
-      script: cd {{ md }} && {{ PYTHON }} -m pip install . --no-deps -vv
+      script: cd md && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
         - python
@@ -76,19 +76,20 @@ outputs:
         - setuptools
     test:
       imports:
-        - {{ name }}{{ md }}
+        - {{ name }}md
       requires:
         - spacy {{ version.split('.')[0] }}.{{ version.split('.')[1] }}.*
       commands:
-        - python -c "__import__('{{ name }}{{ md }}').load()"
-        - python -c "__import__('spacy').load('{{ name }}{{ md }}')"
-  - name: {{ prefix }}{{ name }}{{ lg }}
+        - python -c "__import__('{{ name }}md').load()"
+        - python -c "__import__('spacy').load('{{ name }}md')"
+  - name: {{ prefix }}{{ name }}lg
     files:
-      - {{ lg }}
+      - lg
+      - LICENSE
     build:
       noarch: python
       number: 0
-      script: cd {{ lg }} && {{ PYTHON }} -m pip install . --no-deps -vv
+      script: cd lg && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
         - python
@@ -98,17 +99,17 @@ outputs:
         - setuptools
     test:
       imports:
-        - {{ name }}{{ lg }}
+        - {{ name }}lg
       requires:
         - spacy {{ version.split('.')[0] }}.{{ version.split('.')[1] }}.*
       commands:
-        - python -c "__import__('{{ name }}{{ lg }}').load()"
-        - python -c "__import__('spacy').load('{{ name }}{{ lg }}')"
+        - python -c "__import__('{{ name }}lg').load()"
+        - python -c "__import__('spacy').load('{{ name }}lg')"
 
 about:
   home: https://spacy.io
   license: MIT
-  # TODO: Add license file.
+  license_file: LICENSE
   summary: 'English multi-task CNN trained on OntoNotes, with GloVe vectors trained on Common Crawl.'
   doc_url: https://spacy.io/models/en
   dev_url: https://github.com/explosion/spacy-models
