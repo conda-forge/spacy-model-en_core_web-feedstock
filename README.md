@@ -3,7 +3,7 @@ About spacy-model-en_core_web
 
 Home: https://spacy.io
 
-Package license: CC BY-SA 3.0
+Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
