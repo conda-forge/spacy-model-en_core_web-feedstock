@@ -1,6 +1,6 @@
 {% set prefix = "spacy-model-" %}
 {% set name = "en_core_web_" %}
-{% set version = "2.2.0" %}
+{% set version = "2.2.5" %}
 
 package:
   name: {{ prefix|lower }}{{ name[:-1]|lower }}
@@ -8,20 +8,20 @@ package:
 
 source:
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}sm-{{ version }}/{{ name }}sm-{{ version }}.tar.gz
-    sha256: 65cea113d7509d5ab515583bbcbc9a31b4157bebbb73133d4110d2945476eaa4
+    sha256: 60b69065c97fd2e4972c33300205e1dead3501d2e0bfd6a182c3a033e337caee
     folder: sm
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}md-{{ version }}/{{ name }}md-{{ version }}.tar.gz
-    sha256: a86cd3e03b8f41b0fcfb19b09ce911f25a2d9881aa945a13fb1e4a773ecadb8d
+    sha256: bee7af9b66f2542139fe5e206d48d1df98d19e6f5b6a0f7d14fa96a304dd62f4
     folder: md
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}lg-{{ version }}/{{ name }}lg-{{ version }}.tar.gz
-    sha256: 7069f864d0c38dd2554ec0d1403621b17e0f4b1879cac3ba247fede1e620beb7
+    sha256: 994ea23a07b1c2867e1b9b21521ccb96fba582fd50e60d9d488a64a8e7230dea
     folder: lg
   - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
     sha256: 9f865832998d57f089bd411844b65dd3875c585ccd0eb84e385563840da98ec3
 
 build:
   noarch: python
-  number: 1
+  number: 0
 
 requirements:
   host:
