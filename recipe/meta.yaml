@@ -1,6 +1,6 @@
 {% set prefix = "spacy-model-" %}
 {% set name = "en_core_web_" %}
-{% set version = "2.2.5" %}
+{% set version = "2.3.0" %}
 
 package:
   name: {{ prefix|lower }}{{ name[:-1]|lower }}
@@ -8,16 +8,16 @@ package:
 
 source:
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}sm-{{ version }}/{{ name }}sm-{{ version }}.tar.gz
-    sha256: 60b69065c97fd2e4972c33300205e1dead3501d2e0bfd6a182c3a033e337caee
+    sha256: ea8c87848b4a97ced174919e08c00c7888a30495ace38d281d455ee270da2c12
     folder: sm
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}md-{{ version }}/{{ name }}md-{{ version }}.tar.gz
-    sha256: bee7af9b66f2542139fe5e206d48d1df98d19e6f5b6a0f7d14fa96a304dd62f4
+    sha256: 70a957e8cf71f3d98b387d3ddb91a19b1ec016c26b2e580daee1aa0827d648fb
     folder: md
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}lg-{{ version }}/{{ name }}lg-{{ version }}.tar.gz
-    sha256: 994ea23a07b1c2867e1b9b21521ccb96fba582fd50e60d9d488a64a8e7230dea
+    sha256: c2c532aad85495bd5708ec077ceb3700794cd64b88480f654942f9303e2fca55
     folder: lg
   - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
-    sha256: 9f865832998d57f089bd411844b65dd3875c585ccd0eb84e385563840da98ec3
+    sha256: 2946c76df2417fe4e29c693e4d877f8516630740f0ede219edf1b0d06c61d536
 
 build:
   noarch: python
@@ -110,7 +110,7 @@ about:
   home: https://spacy.io
   license: MIT
   license_file: LICENSE
-  summary: 'English multi-task CNN trained on OntoNotes, with GloVe vectors trained on Common Crawl.'
+  summary: English multi-task CNN trained on OntoNotes, with GloVe vectors trained on Common Crawl.
   doc_url: https://spacy.io/models/en
   dev_url: https://github.com/explosion/spacy-models
 
