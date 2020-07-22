@@ -5,7 +5,7 @@ Home: https://spacy.io
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: English multi-task CNN trained on OntoNotes, with GloVe vectors trained on Common Crawl.
 
