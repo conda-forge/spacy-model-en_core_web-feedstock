@@ -5,11 +5,13 @@ Home: https://spacy.io
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/spacy-model-en_core_web-feedstock/blob/master/LICENSE.txt)
 
 Summary: English multi-task CNN trained on OntoNotes, with GloVe vectors trained on Common Crawl.
 
+Development: https://github.com/explosion/spacy-models
 
+Documentation: https://spacy.io/models/en
 
 Current build status
 ====================
