@@ -1,9 +1,13 @@
 {% set prefix = "spacy-model-" %}
 {% set name = "en_core_web_" %}
 {% set version = "3.0.0" %}
+{% set build_number = "1" %}
+# see https://github.com/explosion/spacy-models/blob/master/compatibility.json
+# but the pattern _generally_ seems to be x.x
+{% set spacy_version = ".".join(version.split(".")[:2] + ['*']) %}
 
 package:
-  name: {{ prefix|lower }}{{ name[:-1]|lower }}
+  name: {{ prefix }}{{ name[:-1] }}
   version: {{ version }}
 
 source:
@@ -21,15 +25,15 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: {{ build_number }}
 
 requirements:
   host:
-    - python
+    - python >=2.7
     - pip
   run:
     - setuptools
-    - python
+    - python >=2.7
 
 test:
   commands:
@@ -42,66 +46,74 @@ outputs:
       - LICENSE
     build:
       noarch: python
-      number: 0
+      number: {{ build_number }}
       script: cd sm && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python
+        - python >=2.7
         - pip
       run:
-        - python
+        - python >=2.7
         - setuptools
+      run_constrained:
+        - spacy =={{ spacy_version }}
     test:
       imports:
         - {{ name }}sm
       requires:
-        - spacy {{ version.split('.')[0] }}.{{ version.split('.')[1] }}.*
+        - spacy
       commands:
         - python -c "__import__('{{ name }}sm').load()"
         - python -c "__import__('spacy').load('{{ name }}sm')"
+
   - name: {{ prefix }}{{ name }}md
     files:
       - md
       - LICENSE
     build:
       noarch: python
-      number: 0
+      number: {{ build_number }}
       script: cd md && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python
+        - python >=2.7
         - pip
       run:
-        - python
+        - python >=2.7
         - setuptools
+      run_constrained:
+        - spacy =={{ spacy_version }}
     test:
       imports:
         - {{ name }}md
       requires:
-        - spacy {{ version.split('.')[0] }}.{{ version.split('.')[1] }}.*
+        - spacy
       commands:
         - python -c "__import__('{{ name }}md').load()"
         - python -c "__import__('spacy').load('{{ name }}md')"
+
   - name: {{ prefix }}{{ name }}lg
     files:
       - lg
       - LICENSE
     build:
       noarch: python
-      number: 0
+      number: {{ build_number }}
       script: cd lg && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python
+        - python >=2.7
         - pip
       run:
-        - python
+        - python >=2.7
         - setuptools
+      run_constrained:
+        - spacy =={{ spacy_version }}
     test:
       imports:
         - {{ name }}lg
       requires:
-        - spacy {{ version.split('.')[0] }}.{{ version.split('.')[1] }}.*
+        - spacy
       commands:
         - python -c "__import__('{{ name }}lg').load()"
         - python -c "__import__('spacy').load('{{ name }}lg')"
