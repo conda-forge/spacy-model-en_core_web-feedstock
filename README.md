@@ -42,6 +42,7 @@ Installing `spacy-model-en_core_web` from the `conda-forge` channel can be achie
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `spacy-model-en_core_web_lg, spacy-model-en_core_web_md, spacy-model-en_core_web_sm` can be installed with:
