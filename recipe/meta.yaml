@@ -1,7 +1,7 @@
 {% set prefix = "spacy-model-" %}
 {% set name = "en_core_web_" %}
-{% set version = "3.0.0" %}
-{% set build_number = "1" %}
+{% set version = "3.1.0" %}
+{% set build_number = 0 %}
 # see https://github.com/explosion/spacy-models/blob/master/compatibility.json
 # but the pattern _generally_ seems to be x.x
 {% set spacy_version = ".".join(version.split(".")[:2] + ['*']) %}
@@ -12,13 +12,13 @@ package:
 
 source:
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}sm-{{ version }}/{{ name }}sm-{{ version }}.tar.gz
-    sha256: 0673b3ce4a28a19e99dc0fc3f8f7fe67b936c41749e6b70f778ec5f9f78f3a66
+    sha256: f624cbee5511e6c90e4ff9ed502c8acab14bf82096c0e28a4645564b70f87660
     folder: sm
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}md-{{ version }}/{{ name }}md-{{ version }}.tar.gz
-    sha256: 45757583a3c9d15c6895cf4bf9512e86243bab8cda51512c127f5cbdc34ac630
+    sha256: 7f0de3a2a7b6d6e17ce75188a7ec227c2283dc2df010ee5e0905096335d7c594
     folder: md
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}lg-{{ version }}/{{ name }}lg-{{ version }}.tar.gz
-    sha256: 1eb1fafcde97778bc3c13f9da712e37d789f5d1bc2f3314968222cb77f41ab69
+    sha256: be75145932fad6f496eb3cd2f9c09152ad34b286507406d23200a70c0c88d580
     folder: lg
   - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
     sha256: b90775797175e7aa165a5508c8132da463b8ae029b419f4fc52450276d9f2872
