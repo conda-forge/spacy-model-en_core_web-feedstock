@@ -29,11 +29,11 @@ build:
 
 requirements:
   host:
-    - python >=2.7
+    - python >=3
     - pip
   run:
     - setuptools
-    - python >=2.7
+    - python >=3
 
 test:
   commands:
@@ -50,10 +50,10 @@ outputs:
       script: cd sm && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python >=2.7
+        - python >=3
         - pip
       run:
-        - python >=2.7
+        - python >=3
         - setuptools
       run_constrained:
         - spacy =={{ spacy_version }}
@@ -76,10 +76,10 @@ outputs:
       script: cd md && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python >=2.7
+        - python >=3
         - pip
       run:
-        - python >=2.7
+        - python >=3
         - setuptools
       run_constrained:
         - spacy =={{ spacy_version }}
@@ -102,10 +102,10 @@ outputs:
       script: cd lg && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python >=2.7
+        - python >=3
         - pip
       run:
-        - python >=2.7
+        - python >=3
         - setuptools
       run_constrained:
         - spacy =={{ spacy_version }}
