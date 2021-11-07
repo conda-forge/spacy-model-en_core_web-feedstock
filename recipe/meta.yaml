@@ -55,7 +55,6 @@ outputs:
       run:
         - python >=3
         - setuptools
-      run_constrained:
         - spacy =={{ spacy_version }}
     test:
       imports:
@@ -81,7 +80,6 @@ outputs:
       run:
         - python >=3
         - setuptools
-      run_constrained:
         - spacy =={{ spacy_version }}
     test:
       imports:
@@ -107,7 +105,6 @@ outputs:
       run:
         - python >=3
         - setuptools
-      run_constrained:
         - spacy =={{ spacy_version }}
     test:
       imports:
