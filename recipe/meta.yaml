@@ -1,6 +1,6 @@
 {% set prefix = "spacy-model-" %}
 {% set name = "en_core_web_" %}
-{% set version = "3.1.0" %}
+{% set version = "3.2.0" %}
 {% set build_number = 0 %}
 # see https://github.com/explosion/spacy-models/blob/master/compatibility.json
 # but the pattern _generally_ seems to be x.x
@@ -12,13 +12,13 @@ package:
 
 source:
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}sm-{{ version }}/{{ name }}sm-{{ version }}.tar.gz
-    sha256: f624cbee5511e6c90e4ff9ed502c8acab14bf82096c0e28a4645564b70f87660
+    sha256: f884c5958019509db28f9a3a3bb2944c5a7a094eb28e61e8a9d9fdfa40f549f4
     folder: sm
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}md-{{ version }}/{{ name }}md-{{ version }}.tar.gz
-    sha256: 7f0de3a2a7b6d6e17ce75188a7ec227c2283dc2df010ee5e0905096335d7c594
+    sha256: efced3da7aa5f76a1308c9ad48ca95e09480cf5a5c9c26f5d08160c0ff0e00ab
     folder: md
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}lg-{{ version }}/{{ name }}lg-{{ version }}.tar.gz
-    sha256: be75145932fad6f496eb3cd2f9c09152ad34b286507406d23200a70c0c88d580
+    sha256: 40bab7d231a67a17cdac169bdf3a18070d34e941302bc037841b5361d95b89f3
     folder: lg
   - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
     sha256: b90775797175e7aa165a5508c8132da463b8ae029b419f4fc52450276d9f2872
@@ -29,11 +29,11 @@ build:
 
 requirements:
   host:
-    - python >=2.7
+    - python >=3.6
     - pip
   run:
     - setuptools
-    - python >=2.7
+    - python >=3.6
 
 test:
   commands:
@@ -50,12 +50,11 @@ outputs:
       script: cd sm && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python >=2.7
+        - python >=3.6
         - pip
       run:
-        - python >=2.7
+        - python >=3.6
         - setuptools
-      run_constrained:
         - spacy =={{ spacy_version }}
     test:
       imports:
@@ -76,12 +75,11 @@ outputs:
       script: cd md && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python >=2.7
+        - python >=3.6
         - pip
       run:
-        - python >=2.7
+        - python >=3.6
         - setuptools
-      run_constrained:
         - spacy =={{ spacy_version }}
     test:
       imports:
@@ -102,12 +100,11 @@ outputs:
       script: cd lg && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       host:
-        - python >=2.7
+        - python >=3.6
         - pip
       run:
-        - python >=2.7
+        - python >=3.6
         - setuptools
-      run_constrained:
         - spacy =={{ spacy_version }}
     test:
       imports:
