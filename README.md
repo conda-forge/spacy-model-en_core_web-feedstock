@@ -34,6 +34,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-spacy--model--en_core_web_lg-green.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_lg) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spacy-model-en_core_web_lg.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_lg) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spacy-model-en_core_web_lg.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_lg) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spacy-model-en_core_web_lg.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_lg) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-spacy--model--en_core_web_md-green.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_md) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spacy-model-en_core_web_md.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_md) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spacy-model-en_core_web_md.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_md) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spacy-model-en_core_web_md.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_md) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-spacy--model--en_core_web_sm-green.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_sm) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spacy-model-en_core_web_sm.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_sm) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spacy-model-en_core_web_sm.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_sm) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spacy-model-en_core_web_sm.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_sm) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-spacy--model--en_core_web_trf-green.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_trf) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spacy-model-en_core_web_trf.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_trf) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spacy-model-en_core_web_trf.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_trf) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spacy-model-en_core_web_trf.svg)](https://anaconda.org/conda-forge/spacy-model-en_core_web_trf) |
 
 Installing spacy-model-en_core_web
 ==================================
@@ -45,10 +46,10 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `spacy-model-en_core_web_lg, spacy-model-en_core_web_md, spacy-model-en_core_web_sm` can be installed with:
+Once the `conda-forge` channel has been enabled, `spacy-model-en_core_web_lg, spacy-model-en_core_web_md, spacy-model-en_core_web_sm, spacy-model-en_core_web_trf` can be installed with:
 
 ```
-conda install spacy-model-en_core_web_lg spacy-model-en_core_web_md spacy-model-en_core_web_sm
+conda install spacy-model-en_core_web_lg spacy-model-en_core_web_md spacy-model-en_core_web_sm spacy-model-en_core_web_trf
 ```
 
 It is possible to list all of the versions of `spacy-model-en_core_web_lg` available on your platform with:
