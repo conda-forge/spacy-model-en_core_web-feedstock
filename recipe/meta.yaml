@@ -20,6 +20,9 @@ source:
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}lg-{{ version }}/{{ name }}lg-{{ version }}.tar.gz
     sha256: 40bab7d231a67a17cdac169bdf3a18070d34e941302bc037841b5361d95b89f3
     folder: lg
+  - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_trf-{{ version }}/{{ name }}_trf-{{ version }}.tar.gz
+    sha256: 404063b17ff33daa984e53fec128a211018d166e1969bf045b82defc15feed20
+    folder: trf
   - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
     sha256: b90775797175e7aa165a5508c8132da463b8ae029b419f4fc52450276d9f2872
 
@@ -115,6 +118,30 @@ outputs:
         - python -c "__import__('{{ name }}lg').load()"
         - python -c "__import__('spacy').load('{{ name }}lg')"
 
+  - name: {{ prefix }}{{ name }}trf
+    files:
+      - trf
+      - LICENSE
+    build:
+      noarch: python
+      number: {{ build_number }}
+      script: cd trf && {{ PYTHON }} -m pip install . --no-deps -vv
+    requirements:
+      host:
+        - python >=3.6
+        - pip
+      run:
+        - python >=3.6
+        - setuptools
+        - spacy =={{ spacy_version }}
+    test:
+      imports:
+        - {{ name }}trf
+      requires:
+        - spacy
+      commands:
+        - python -c "__import__('{{ name }}trf').load()"
+        - python -c "__import__('spacy').load('{{ name }}trf')"
 about:
   home: https://spacy.io
   license: MIT
