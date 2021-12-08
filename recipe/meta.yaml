@@ -134,6 +134,8 @@ outputs:
         - python >=3.6
         - setuptools
         - spacy =={{ spacy_version }}
+        - spacy-alignments
+        - spacy-transformers
     test:
       imports:
         - {{ name }}trf
