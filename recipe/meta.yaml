@@ -1,6 +1,6 @@
 {% set prefix = "spacy-model-" %}
 {% set name = "en_core_web_" %}
-{% set version = "3.2.0" %}
+{% set version = "3.3.0" %}
 {% set build_number = 0 %}
 # see https://github.com/explosion/spacy-models/blob/master/compatibility.json
 # but the pattern _generally_ seems to be x.x
@@ -12,19 +12,19 @@ package:
 
 source:
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}sm-{{ version }}/{{ name }}sm-{{ version }}.tar.gz
-    sha256: f884c5958019509db28f9a3a3bb2944c5a7a094eb28e61e8a9d9fdfa40f549f4
+    sha256: 348aa7a0afc04ef52b2f63a9de29a9bcc4463260f023b2814ff506214d9476ae
     folder: sm
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}md-{{ version }}/{{ name }}md-{{ version }}.tar.gz
-    sha256: efced3da7aa5f76a1308c9ad48ca95e09480cf5a5c9c26f5d08160c0ff0e00ab
+    sha256: b4599087ee8810a2f3c65f55f25962bbc95bd87e691d19fc3a8ee731e946d8aa
     folder: md
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}lg-{{ version }}/{{ name }}lg-{{ version }}.tar.gz
-    sha256: 40bab7d231a67a17cdac169bdf3a18070d34e941302bc037841b5361d95b89f3
+    sha256: 432ae42b4c26fab11574b48a8d47ef543a2b48fdf0a990bf8f6a61dc454c2d48
     folder: lg
   - url: https://github.com/explosion/spacy-models/releases/download/{{ name }}trf-{{ version }}/{{ name }}trf-{{ version }}.tar.gz
-    sha256: f2296d93d63c228f7b4df2a29f23f1e9fe291180c7257ed3cb7221c4e4ae30e3
+    sha256: bc6195dd3a01efdbabca3c93f0eb4701ad9e78c05528d6fcdc2fe9df848bd3e1
     folder: trf
   - url: https://raw.githubusercontent.com/explosion/spaCy/master/LICENSE
-    sha256: b90775797175e7aa165a5508c8132da463b8ae029b419f4fc52450276d9f2872
+    sha256: c07800e058b1b544eb9d47dd81687582fe6830c1ddc47f57521fc93628685915
 
 build:
   noarch: python
